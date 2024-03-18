@@ -13,8 +13,10 @@ namespace NORM_DIST
 	void genNums(std::vector<int>&, double, double);
 	// calcStats calcualtes five number summary of the distribution and prints
 	void calcStats(const std::vector<int>&, double, double);
+	// overloaded calcStats calcualtes and prints five number summary of the distribution used for unit testing 
+	void calcStats(const std::vector<int>&, double&, double&, double&, double&, double&, size_t&, size_t&);
 	// printHist prints the populated vector
-	void printHist(const std::vector<int>&);
+	void printHist(const std::vector<int>&, char&);
 }
 
 #endif
