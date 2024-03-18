@@ -15,7 +15,7 @@ namespace NORM_DIST
 		std::normal_distribution<double> myDist(mean, stdDev); // using the meand and standard deviation a normal distribution is created
 		int temp; // used to hold value of numbers from random generation
 
-		myNums.resize(21, 0); // resizes the vector in order to organize its bins for future printing
+		myNums.resize(21, 0); // resizes the vector in order to organize its bins for future printing uses 21 as its size as this includes 0 as a number and the range is from 0 - 20
 
 		// for loop used to generate 20000 random integers
 		for (int i = 0; i < size; i++)
@@ -61,7 +61,7 @@ namespace NORM_DIST
 		std::cin >> user;
 
 		// iterates through the bins of the distribution
-		for (int i = 0; i < 21; i++)
+		for (int i = 0; i < myNums.size(); i++)
 		{
 			// prints out the value of the bin while aligning it to the rest
 			std::cout << std::setw(2) << i << "|";
