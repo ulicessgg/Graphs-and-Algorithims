@@ -6,7 +6,7 @@ namespace NORM_DIST
 	{
 		if (mean == 0 || stdDev == 0)
 		{
-			std::cout << "Mean or Standard Deviation equal 0. Distribution not possible." << std::endl;
+			std::cout << "Mean or Standard Deviation equal 0. Distribution not possible." << std::endl << std::endl;
 			return;
 		}
 
