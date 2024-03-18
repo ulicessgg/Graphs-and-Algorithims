@@ -29,7 +29,7 @@ namespace NORM_DIST
 		calcStats(myNums, mean, stdDev);// passes the values of the normal distribution to calculate and print statistical information
 	}
 
-	void calcStats(const std::vector<int>& myNums, double mean, double stdDev) 
+	void calcStats(const std::vector<int>& myNums, double mean, double stdDev)
 	{
 		// mean median and mode are the same in normal distribution
 		double median = mean;
@@ -45,21 +45,55 @@ namespace NORM_DIST
 		// outputs histogram data to users
 		std::cout << "Mean: " << mean << std::endl
 				  << "Median: " << median << std::endl
-			  	  << "Mode: " << mode << std::endl
+				  << "Mode: " << mode << std::endl
 				  << "Variance: " << variance << std::endl
 				  << "Standard Deviation: " << stdDev << std::endl
 				  << "Min: " << min << std::endl
 				  << "Max: " << max << std::endl << std::endl;
 
-		printHist(myNums); // passes the values of the normal distribution to print
+		char sym; // char for user input and unit testing
+
+		printHist(myNums, sym); // passes the values of the normal distribution to print
 	}
 
-	void printHist(const std::vector<int>& myNums)
+	void calcStats(const std::vector<int>& myNums, double& mean, double& stdDev, double& median, double& mode, double& variance, size_t& min, size_t& max)
 	{
+		// mean median and mode are the same in normal distribution
+		median = mean;
+	    mode = median;
+		// standard deviation is the square root of the variance
+		variance = pow(stdDev, 2);
+
+		auto minPos = std::min_element(myNums.begin(), myNums.end()); // mipos stores the minimum value
+		min = std::distance(myNums.begin(), minPos); // using minpos distance returns and stores the minimum value index
+		auto maxPos = std::max_element(myNums.begin(), myNums.end()); // maxpos stores the maximum value
+		max = std::distance(myNums.begin(), maxPos); // using maxpos distance returns and stores the maximum value index
+
+		// outputs histogram data to users
+		std::cout << "Mean: " << mean << std::endl
+				  << "Median: " << median << std::endl
+				  << "Mode: " << mode << std::endl
+				  << "Variance: " << variance << std::endl
+				  << "Standard Deviation: " << stdDev << std::endl
+				  << "Min: " << min << std::endl
+				  << "Max: " << max << std::endl << std::endl;
+
+		char sym; // char for user input and unit testing
+
+		printHist(myNums, sym); // passes the values of the normal distribution to print
+	}
+
+	void printHist(const std::vector<int>& myNums, char& sym)
+	{
+		// if empty ends function
+		if (myNums.empty())
+		{
+			return;
+		}
+
 		// allows for user specified symbol
-		char user;
 		std::cout << "Enter symbol for histogram printing: ";
-		std::cin >> user;
+		std::cin >> sym;
 		std::cout << std::endl;
 
 		// iterates through the bins of the distribution
@@ -71,7 +105,7 @@ namespace NORM_DIST
 			if (myNums[i] > 0)
 			{
 				// prints * to show the frequency of it using 200 for scaleing and 20000 for the size of our distribution
-				std::cout << std::string(myNums[i] * (200.0 / 20000.0), user) << std::endl;
+				std::cout << std::string(myNums[i] * (200.0 / 20000.0), sym) << std::endl;
 			}
 			else
 			{
