@@ -56,9 +56,11 @@ namespace NORM_DIST
 
 	void printHist(const std::vector<int>& myNums)
 	{
+		// allows for user specified symbol
 		char user;
 		std::cout << "Enter symbol for histogram printing: ";
 		std::cin >> user;
+		std::cout << std::endl;
 
 		// iterates through the bins of the distribution
 		for (int i = 0; i < myNums.size(); i++)
@@ -76,5 +78,6 @@ namespace NORM_DIST
 				std::cout << std::endl;
 			}
 		}
+		std::cout << std::endl;
 	}
 }
