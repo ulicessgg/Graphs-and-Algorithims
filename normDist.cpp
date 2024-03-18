@@ -4,6 +4,12 @@ namespace NORM_DIST
 {
 	void genNums(std::vector<int>& myNums, double mean, double stdDev)
 	{
+		if (mean == 0 || stdDev == 0)
+		{
+			std::cout << "Mean or Standard Deviation equal 0. Distribution not possible." << std::endl;
+			return;
+		}
+
 		const int size = 20000; // 20000 random intergers specifed in project description and is used for size of vector
 		std::default_random_engine seed; // used to generate random numbers 
 		std::normal_distribution<double> myDist(mean, stdDev); // using the meand and standard deviation a normal distribution is created
