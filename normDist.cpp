@@ -57,7 +57,7 @@ namespace NS_TEAM_PROJECT
 
 		char sym; // char for user input and unit testing
 
-		printHist(myNums, sym); // passes the values of the normal distribution to print
+		printNormalHist(myNums, sym); // passes the values of the normal distribution to print
 	}
 
 	void calcNormalHistStats(const std::vector<int>& myNums, double& mean, double& stdDev, double& median, double& mode, double& variance, size_t& min, size_t& max)
@@ -84,7 +84,7 @@ namespace NS_TEAM_PROJECT
 
 		char sym; // char for user input and unit testing
 
-		printHist(myNums, sym); // passes the values of the normal distribution to print
+		printNormalHist(myNums, sym); // passes the values of the normal distribution to print
 	}
 
 	void printNormalHist(const std::vector<int>& myNums, char& sym)
@@ -109,7 +109,7 @@ namespace NS_TEAM_PROJECT
 			if (myNums[i] > 0)
 			{
 				// prints user symbol to show the frequency of it using 100 for scaling and 20000 for the size of our distribution
-				std::cout << std::string(myNums[i] * (100 / 20000), sym) << std::endl;
+				std::cout << std::string(myNums[i] * (100.0/20000.0), sym) << std::endl;
 			}
 			else
 			{
@@ -118,5 +118,4 @@ namespace NS_TEAM_PROJECT
 		}
 		std::cout << std::endl;
 	}
-
 }
