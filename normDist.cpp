@@ -109,7 +109,7 @@ namespace NS_TEAM_PROJECT
 			if (myNums[i] > 0)
 			{
 				// prints user symbol to show the frequency of it using 100 for scaling and 20000 for the size of our distribution
-				std::cout << std::string(myNums[i] * (100 / 20000), sym) << std::endl;
+				std::cout << std::string(myNums[i] * (100.0/20000.0), sym) << std::endl;
 			}
 			else
 			{
