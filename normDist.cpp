@@ -15,7 +15,7 @@ namespace NORM_DIST
 		std::normal_distribution<double> myDist(mean, stdDev); // using the meand and standard deviation a normal distribution is created
 		int temp; // used to hold value of numbers from random generation
 
-		myNums.resize(mean + 6, 0); // resizes the vector in order to organize its bins for future printing uses the mean as its the median 
+		myNums.resize((int)mean + 6, 0); // resizes the vector in order to organize its bins for future printing uses the mean as its the median 
 									// and adds 6 to make the range large enough to output 10 bins for example mean:9 size of 15 will output bins 
 									// 4 - 14 as the range is 5 on each side of the mean/median
 
@@ -99,7 +99,7 @@ namespace NORM_DIST
 		std::cout << std::endl;
 
 		// iterates through the bins of the distribution
-		for (int i = myNums.size() - 11; i < myNums.size(); i++)
+		for (size_t i = myNums.size() - 11; i < myNums.size(); i++)
 		{
 			// prints out the value of the bin while aligning it to the rest
 			std::cout << std::setw(2) << i << "|";
@@ -107,7 +107,7 @@ namespace NORM_DIST
 			if (myNums[i] > 0)
 			{
 				// prints user symbol to show the frequency of it using 100 for scaleing and 20000 for the size of our distribution
-				std::cout << std::string(myNums[i] * (100.0 / 20000.0), sym) << std::endl;
+				std::cout << std::string(myNums[i] * (100 / 20000), sym) << std::endl;
 			}
 			else
 			{
