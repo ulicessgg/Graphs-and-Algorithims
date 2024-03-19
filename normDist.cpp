@@ -30,10 +30,10 @@ namespace NS_TEAM_PROJECT
 				myNums[temp]++; // for each corresponding value their frequency is increased
 			}
 		}
-		calcHistStats(myNums, mean, stdDev);// passes the values of the normal distribution to calculate and print statistical information
+		calcNormalHistStats(myNums, mean, stdDev);// passes the values of the normal distribution to calculate and print statistical information
 	}
 
-	void calcHistStats(const std::vector<int>& myNums, double mean, double stdDev)
+	void calcNormalHistStats(const std::vector<int>& myNums, double mean, double stdDev)
 	{
 		// mean median and mode are the same in normal distribution
 		double median = mean;
@@ -60,7 +60,7 @@ namespace NS_TEAM_PROJECT
 		printHist(myNums, sym); // passes the values of the normal distribution to print
 	}
 
-	void calcHistStats(const std::vector<int>& myNums, double& mean, double& stdDev, double& median, double& mode, double& variance, size_t& min, size_t& max)
+	void calcNormalHistStats(const std::vector<int>& myNums, double& mean, double& stdDev, double& median, double& mode, double& variance, size_t& min, size_t& max)
 	{
 		// mean median and mode are the same in normal distribution
 		median = mean;
@@ -87,7 +87,7 @@ namespace NS_TEAM_PROJECT
 		printHist(myNums, sym); // passes the values of the normal distribution to print
 	}
 
-	void printHist(const std::vector<int>& myNums, char& sym)
+	void printNormalHist(const std::vector<int>& myNums, char& sym)
 	{
 		// if empty ends function
 		if (myNums.empty())
