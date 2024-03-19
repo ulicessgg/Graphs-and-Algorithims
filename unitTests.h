@@ -14,13 +14,13 @@ namespace UNIT_TESTS
 	{
 		std::vector<int> userNums;
 		NS_TEAM_PROJECT::genRandNormalDist(userNums, 0, 1); // with a mean of zero there can't be a normal distribution generated
-		return userNums.empty();							 // returns true if userNums is empty
+		return userNums.empty();							// returns true if userNums is empty
 	}
 	bool unitTest2_genRandNormalDist()
 	{
 		std::vector<int> userNums;
 		NS_TEAM_PROJECT::genRandNormalDist(userNums, 1, 0); // with a stdDev of zero there can't be a normal distribution generated
-		return userNums.empty();							 // returns true if userNums is empty
+		return userNums.empty();							// returns true if userNums is empty
 	}
 	bool unitTest3_genRandNormalDist()
 	{
@@ -69,7 +69,7 @@ namespace UNIT_TESTS
 			return false;
 		}
 	}
-	
+
 	bool unitTest1_printNormalHist()
 	{
 		std::vector<int> userNums;
@@ -85,7 +85,7 @@ namespace UNIT_TESTS
 		char sym = '*';
 
 		NS_TEAM_PROJECT::printNormalHist(userNums, sym);
-		
+
 		return !(sym == '*');
 	}
 
@@ -132,23 +132,23 @@ namespace UNIT_TESTS
 
 	bool unitTest1_quickSort()
 	{
-		std::vector<NS_TEAM_PROJECT::TokenFreq> insertionSortVector;
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 200});
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 1});
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
+		std::vector<NS_TEAM_PROJECT::TokenFreq> targetVector;
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 200});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 1});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
 
 		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
 		{
 			return (o1.freq < o2.freq);
 		};
 
-		int head = insertionSortVector.size() - 1;
+		int head = targetVector.size() - 1;
 
-		NS_TEAM_PROJECT::quickSort(insertionSortVector, 0, head, comp);
+		NS_TEAM_PROJECT::quickSort(targetVector, 0, head, comp);
 
 		// Check if the vector is sorted
-		if (_isSortedAsc(insertionSortVector))
+		if (_isSortedAsc(targetVector))
 		{
 			std::cout << "test1_quickSort Passed" << std::endl;
 			return true;
@@ -159,23 +159,23 @@ namespace UNIT_TESTS
 	}
 	bool unitTest2_quickSort()
 	{
-		std::vector<NS_TEAM_PROJECT::TokenFreq> insertionSortVector;
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 4});
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 1});
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 2});
+		std::vector<NS_TEAM_PROJECT::TokenFreq> targetVector;
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 4});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 1});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 2});
 
 		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
 		{
 			return (o1.freq > o2.freq);
 		};
 
-		int head = insertionSortVector.size() - 1;
+		int head = targetVector.size() - 1;
 
-		NS_TEAM_PROJECT::quickSort(insertionSortVector, 0, head, comp);
+		NS_TEAM_PROJECT::quickSort(targetVector, 0, head, comp);
 
 		// Check if the vector is sorted
-		if (_isSortedDesc(insertionSortVector))
+		if (_isSortedDesc(targetVector))
 		{
 			std::cout << "test2_quickSort Passed" << std::endl;
 			return true;
@@ -186,22 +186,22 @@ namespace UNIT_TESTS
 	}
 	bool unitTest3_quickSort()
 	{
-		std::vector<NS_TEAM_PROJECT::TokenFreq> insertionSortVector;
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 0});
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 0});
-		insertionSortVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 0});
+		std::vector<NS_TEAM_PROJECT::TokenFreq> targetVector;
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 0});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 0});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 0});
 
 		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
 		{
 			return (o1.freq > o2.freq);
 		};
 
-		int head = insertionSortVector.size() - 1;
+		int head = targetVector.size() - 1;
 
-		NS_TEAM_PROJECT::quickSort(insertionSortVector, 0, head, comp);
+		NS_TEAM_PROJECT::quickSort(targetVector, 0, head, comp);
 
 		// Check if the vector is sorted
-		if (_isSortedAsc(insertionSortVector))
+		if (_isSortedAsc(targetVector))
 		{
 			std::cout << "test3_quickSort Passed" << std::endl;
 			return true;
@@ -209,6 +209,68 @@ namespace UNIT_TESTS
 
 		std::cout << "test3_quickSort Failed" << std::endl;
 		return false;
+	}
+
+	bool unitTest1_partition()
+	{
+		std::vector<NS_TEAM_PROJECT::TokenFreq> targetVector;
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 4});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 1});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 2});
+
+		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
+		{
+			return (o1.freq < o2.freq);
+		};
+		int head = targetVector.size() - 1;
+		NS_TEAM_PROJECT::partition(targetVector, 0, head, comp);
+
+		std::vector<int> freqOrder = {1, 4, 3, 2};
+
+		for (int i = 0; i <= head; i++)
+		{
+			std::cout << targetVector[i].freq << " ";
+			if (targetVector[i].freq != freqOrder[i])
+			{
+				std::cout << "test1_partition Failed" << std::endl;
+				return false;
+			}
+		}
+
+		std::cout << "test1_partition Passed" << std::endl;
+		return true;
+	}
+
+	bool unitTest2_partition()
+	{
+		std::vector<NS_TEAM_PROJECT::TokenFreq> targetVector;
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 4});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 1});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
+		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 2});
+
+		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
+		{
+			return (o1.freq > o2.freq);
+		};
+		int head = targetVector.size() - 1;
+		NS_TEAM_PROJECT::partition(targetVector, 0, head, comp);
+
+		std::vector<int> freqOrder = {4, 2, 3, 1};
+
+		for (int i = 0; i <= head; i++)
+		{
+
+			if (targetVector[i].freq != freqOrder[i])
+			{
+				std::cout << "test2_partition Failed" << std::endl;
+				return false;
+			}
+		}
+
+		std::cout << "test2_partition Passed" << std::endl;
+		return true;
 	}
 }
 
