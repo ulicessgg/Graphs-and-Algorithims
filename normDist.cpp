@@ -106,7 +106,7 @@ namespace NORM_DIST
 			// if the corresponding value is present
 			if (myNums[i] > 0)
 			{
-				// prints * to show the frequency of it using 100 for scaleing and 20000 for the size of our distribution
+				// prints user symbol to show the frequency of it using 100 for scaleing and 20000 for the size of our distribution
 				std::cout << std::string(myNums[i] * (100.0 / 20000.0), sym) << std::endl;
 			}
 			else
