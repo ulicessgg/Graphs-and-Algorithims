@@ -28,7 +28,7 @@ namespace UNIT_TESTS
 	{
 		std::vector<int> userNums;
 		NS_TEAM_PROJECT::genRandUniformDist(userNums, 9, 3);
-		return userNums.size() == 21; // returns true if userNums has 21 bins
+		return userNums.size() == 15; // returns true if userNums has mean + 6 as its size
 	}
 
 	bool unitTest1_calcHistStats()

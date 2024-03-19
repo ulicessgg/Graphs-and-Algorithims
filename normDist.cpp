@@ -16,7 +16,9 @@ namespace NS_TEAM_PROJECT
 		std::normal_distribution<double> myDist(mean, stdDev); // using the meand and standard deviation a normal distribution is created
 		int temp; // used to hold value of numbers from random generation
 
-		myNums.resize(21, 0); // resizes the vector in order to organize its bins for future printing uses 21 as its size as this includes 0 as a number and the range is from 0 - 20
+		myNums.resize((int)mean + 6, 0); // resizes the vector in order to organize its bins for future printing uses the mean as its the median 
+									// and adds 6 to make the range large enough to output 10 bins for example mean:9 size of 15 will output bins 
+									// 4 - 14 as the range is 5 on each side of the mean/median
 
 		// for loop used to generate 20000 random integers
 		for (int i = 0; i < size; i++)
@@ -45,12 +47,12 @@ namespace NS_TEAM_PROJECT
 
 		// outputs histogram data to users
 		std::cout << "Mean: " << mean << std::endl
-				  << "Median: " << median << std::endl
-				  << "Mode: " << mode << std::endl
-				  << "Variance: " << variance << std::endl
-				  << "Standard Deviation: " << stdDev << std::endl
-				  << "Min: " << min << std::endl
-				  << "Max: " << max << std::endl << std::endl;
+			<< "Median: " << median << std::endl
+			<< "Mode: " << mode << std::endl
+			<< "Variance: " << variance << std::endl
+			<< "Standard Deviation: " << stdDev << std::endl
+			<< "Min: " << min << std::endl
+			<< "Max: " << max << std::endl << std::endl;
 
 		char sym; // char for user input and unit testing
 
@@ -61,7 +63,7 @@ namespace NS_TEAM_PROJECT
 	{
 		// mean median and mode are the same in normal distribution
 		median = mean;
-	    mode = median;
+		mode = median;
 		// standard deviation is the square root of the variance
 		variance = pow(stdDev, 2);
 
@@ -72,12 +74,12 @@ namespace NS_TEAM_PROJECT
 
 		// outputs histogram data to users
 		std::cout << "Mean: " << mean << std::endl
-				  << "Median: " << median << std::endl
-				  << "Mode: " << mode << std::endl
-				  << "Variance: " << variance << std::endl
-				  << "Standard Deviation: " << stdDev << std::endl
-				  << "Min: " << min << std::endl
-				  << "Max: " << max << std::endl << std::endl;
+			<< "Median: " << median << std::endl
+			<< "Mode: " << mode << std::endl
+			<< "Variance: " << variance << std::endl
+			<< "Standard Deviation: " << stdDev << std::endl
+			<< "Min: " << min << std::endl
+			<< "Max: " << max << std::endl << std::endl;
 
 		char sym; // char for user input and unit testing
 
@@ -98,15 +100,15 @@ namespace NS_TEAM_PROJECT
 		std::cout << std::endl;
 
 		// iterates through the bins of the distribution
-		for (int i = 0; i < myNums.size(); i++)
+		for (size_t i = myNums.size() - 11; i < myNums.size(); i++)
 		{
 			// prints out the value of the bin while aligning it to the rest
 			std::cout << std::setw(2) << i << "|";
 			// if the corresponding value is present
 			if (myNums[i] > 0)
 			{
-				// prints * to show the frequency of it using 200 for scaleing and 20000 for the size of our distribution
-				std::cout << std::string(myNums[i] * (200.0 / 20000.0), sym) << std::endl;
+				// prints user symbol to show the frequency of it using 100 for scaleing and 20000 for the size of our distribution
+				std::cout << std::string(myNums[i] * (100 / 20000), sym) << std::endl;
 			}
 			else
 			{
