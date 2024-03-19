@@ -35,11 +35,9 @@ namespace NS_TEAM_PROJECT
     // Prints out histogram with `sym` as representation of data points.
     void printHist(const std::vector<int> &myNums, char &sym);
     // The partition subroutine that's shared by the quickSort and k-th ranked  object algorithms
-    template <typename T>
-    int partition(const std::vector<TokenFreq> &arr, int tail, int head, std::function<bool(T, T)> comp);
+    int partition(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(NS_TEAM_PROJECT::TokenFreq, NS_TEAM_PROJECT::TokenFreq)> comp);
     // An almost generic randomized-QuickSort algorithm to sort an array of TokenFreq objects by a given sorting criterion.
-    template <typename T>
-    void quickSort(std::vector<TokenFreq> &arr, int tail, int head, std::function<bool(T, T)> comp);
+    void quickSort(std::vector<TokenFreq> &arr, int tail, int head, std::function<bool(TokenFreq, TokenFreq)> comp);
     // TODO Implement an almost generic algorithm (the randomized version) to find the k-th ranked object in an array without first sorting this array.
     void genKthRanked(std::vector<TokenFreq> &arr, int k);
     // Overloaded `calcHistStats()` calcualtes and prints five number summary of the distribution used for unit testing

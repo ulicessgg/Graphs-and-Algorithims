@@ -2,8 +2,8 @@
 #include "project.h"
 #include <functional>
 
-template <typename T>
-int NS_TEAM_PROJECT::partition(const std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(T, T)> comp)
+
+int NS_TEAM_PROJECT::partition(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(NS_TEAM_PROJECT::TokenFreq, NS_TEAM_PROJECT::TokenFreq)> comp)
 {
     /* Pick middle value as pivot */
     int midpoint = tail + (head - tail) / 2;
@@ -14,12 +14,12 @@ int NS_TEAM_PROJECT::partition(const std::vector<NS_TEAM_PROJECT::TokenFreq> &ar
 
     while (!done)
     {
-        while (comp(arr[left], pivot))
+        while (comp(pivot, arr[left]))
         {
             ++left;
         }
 
-        while (comp(pivot < arr[right]))
+        while (comp(arr[right], pivot))
         {
             --right;
         }
@@ -40,8 +40,8 @@ int NS_TEAM_PROJECT::partition(const std::vector<NS_TEAM_PROJECT::TokenFreq> &ar
     return right;
 }
 
-template <typename T>
-void NS_TEAM_PROJECT::quickSort(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(T, T)> comp)
+
+void NS_TEAM_PROJECT::quickSort(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(NS_TEAM_PROJECT::TokenFreq, NS_TEAM_PROJECT::TokenFreq)> comp)
 {
 
     if (tail >= head)
