@@ -1,8 +1,9 @@
-#include "normDist.h"
+#include "project.h"
 
-namespace NORM_DIST
+
+namespace NS_TEAM_PROJECT
 {
-	void genNums(std::vector<int>& myNums, double mean, double stdDev)
+	void genRandUniformDist(std::vector<int>& myNums, double mean, double stdDev)
 	{
 		if (mean == 0 || stdDev == 0)
 		{
@@ -26,10 +27,10 @@ namespace NORM_DIST
 				myNums[temp]++; // for each corressponding value their frequency is increased
 			}
 		}
-		calcStats(myNums, mean, stdDev);// passes the values of the normal distribution to calculate and print statistical information
+		calcHistStats(myNums, mean, stdDev);// passes the values of the normal distribution to calculate and print statistical information
 	}
 
-	void calcStats(const std::vector<int>& myNums, double mean, double stdDev)
+	void calcHistStats(const std::vector<int>& myNums, double mean, double stdDev)
 	{
 		// mean median and mode are the same in normal distribution
 		double median = mean;
@@ -56,7 +57,7 @@ namespace NORM_DIST
 		printHist(myNums, sym); // passes the values of the normal distribution to print
 	}
 
-	void calcStats(const std::vector<int>& myNums, double& mean, double& stdDev, double& median, double& mode, double& variance, size_t& min, size_t& max)
+	void calcHistStats(const std::vector<int>& myNums, double& mean, double& stdDev, double& median, double& mode, double& variance, size_t& min, size_t& max)
 	{
 		// mean median and mode are the same in normal distribution
 		median = mean;
@@ -114,4 +115,5 @@ namespace NORM_DIST
 		}
 		std::cout << std::endl;
 	}
+
 }

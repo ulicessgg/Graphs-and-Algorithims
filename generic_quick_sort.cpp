@@ -1,7 +1,9 @@
 #include <iostream>
+#include "project.h"
+#include <functional>
 
 template <typename T>
-int partition(std::vector<T> &arr, int tail, int head)
+int NS_TEAM_PROJECT::partition(const std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(T, T)> comp)
 {
     /* Pick middle value as pivot */
     int midpoint = tail + (head - tail) / 2;
@@ -12,12 +14,12 @@ int partition(std::vector<T> &arr, int tail, int head)
 
     while (!done)
     {
-        while (arr[left] < pivot)
+        while (comp(arr[left], pivot))
         {
             ++left;
         }
 
-        while (pivot < arr[right])
+        while (comp(pivot < arr[right]))
         {
             --right;
         }
@@ -39,7 +41,7 @@ int partition(std::vector<T> &arr, int tail, int head)
 }
 
 template <typename T>
-void quickSort(std::vector<T> &arr, int tail, int head)
+void NS_TEAM_PROJECT::quickSort(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(T, T)> comp)
 {
 
     if (tail >= head)
@@ -47,8 +49,8 @@ void quickSort(std::vector<T> &arr, int tail, int head)
         return;
     }
 
-    int j = partition(arr, tail, head);
+    int j = partition(arr, tail, head, comp);
 
-    quickSort(arr, tail, j);
-    quickSort(arr, j + 1, head);
+    quickSort(arr, tail, j, comp);
+    quickSort(arr, j + 1, head, comp);
 }
