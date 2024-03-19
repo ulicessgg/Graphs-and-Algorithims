@@ -2,7 +2,6 @@
 #include "project.h"
 #include <functional>
 
-
 int NS_TEAM_PROJECT::partition(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(NS_TEAM_PROJECT::TokenFreq, NS_TEAM_PROJECT::TokenFreq)> comp)
 {
     /* Pick middle value as pivot */
@@ -14,12 +13,12 @@ int NS_TEAM_PROJECT::partition(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int
 
     while (!done)
     {
-        while (comp(pivot, arr[left]))
+        while (comp(arr[left], pivot))
         {
             ++left;
         }
 
-        while (comp(arr[right], pivot))
+        while (comp(pivot, arr[right]))
         {
             --right;
         }
@@ -39,7 +38,6 @@ int NS_TEAM_PROJECT::partition(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int
     }
     return right;
 }
-
 
 void NS_TEAM_PROJECT::quickSort(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(NS_TEAM_PROJECT::TokenFreq, NS_TEAM_PROJECT::TokenFreq)> comp)
 {

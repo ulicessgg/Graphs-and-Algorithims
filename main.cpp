@@ -7,5 +7,8 @@ int main(){
     UNIT_TESTS::unitTest1_quickSort();
     UNIT_TESTS::unitTest2_quickSort();
     UNIT_TESTS::unitTest3_quickSort();
+    UNIT_TESTS::unitTest1_genRandNormalDist();
+    UNIT_TESTS::unitTest2_genRandNormalDist();
+    UNIT_TESTS::unitTest3_genRandNormalDist();
     return 0;
 }

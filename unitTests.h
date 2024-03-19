@@ -16,15 +16,13 @@ namespace UNIT_TESTS
 		NS_TEAM_PROJECT::genRandNormalDist(userNums, 0, 1); // with a mean of zero there can't be a normal distribution generated
 		return userNums.empty();							 // returns true if userNums is empty
 	}
-
-	bool unitTest2_genRandUniformDist()
+	bool unitTest2_genRandNormalDist()
 	{
 		std::vector<int> userNums;
-		NS_TEAM_PROJECT::genRandUniformDist(userNums, 1, 0); // with a stdDev of zero there can't be a normal distribution generated
+		NS_TEAM_PROJECT::genRandNormalDist(userNums, 1, 0); // with a stdDev of zero there can't be a normal distribution generated
 		return userNums.empty();							 // returns true if userNums is empty
 	}
-
-	bool unitTest3_genRandUniformDist()
+	bool unitTest3_genRandNormalDist()
 	{
 		std::vector<int> userNums;
 		NS_TEAM_PROJECT::genRandNormalDist(userNums, 9, 3);
@@ -77,17 +75,16 @@ namespace UNIT_TESTS
 		std::vector<int> userNums;
 		char sym = '*';
 
-		NS_TEAM_PROJECT::printNormalHist((userNums, sym);
+		NS_TEAM_PROJECT::printNormalHist(userNums, sym);
 
 		return (sym == '*');
 	}
-
 	bool unitTest2_printNormalHist()
 	{
 		std::vector<int> userNums = {1, 2, 4, 8, 4, 2, 1};
 		char sym = '*';
 
-		NS_TEAM_PROJECT::printNormalHist((userNums, sym);
+		NS_TEAM_PROJECT::printNormalHist(userNums, sym);
 		
 		return !(sym == '*');
 	}
@@ -143,7 +140,7 @@ namespace UNIT_TESTS
 
 		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
 		{
-			return (o1.freq > o2.freq);
+			return (o1.freq < o2.freq);
 		};
 
 		int head = insertionSortVector.size() - 1;
@@ -160,7 +157,6 @@ namespace UNIT_TESTS
 		std::cout << "test1_quickSort Failed" << std::endl;
 		return false;
 	}
-
 	bool unitTest2_quickSort()
 	{
 		std::vector<NS_TEAM_PROJECT::TokenFreq> insertionSortVector;
@@ -171,7 +167,7 @@ namespace UNIT_TESTS
 
 		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
 		{
-			return (o1.freq < o2.freq);
+			return (o1.freq > o2.freq);
 		};
 
 		int head = insertionSortVector.size() - 1;
@@ -188,7 +184,6 @@ namespace UNIT_TESTS
 		std::cout << "test2_quickSort Failed" << std::endl;
 		return false;
 	}
-
 	bool unitTest3_quickSort()
 	{
 		std::vector<NS_TEAM_PROJECT::TokenFreq> insertionSortVector;

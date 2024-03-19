@@ -26,9 +26,9 @@ namespace NS_TEAM_PROJECT
 
     
 
-    // Generates a histogram of 20,000 randomly generated floating-point numbers according to a uniform distribution with a user-specified range
+    // TODO Generates a histogram of 20,000 randomly generated floating-point numbers according to a uniform distribution with a user-specified range
     void genRandUniformDist(std::vector<int> &myNums, double lowerBound, double upperBound);
-    // TODO Accepts an empty vector which is populated through Normal Distribution using the mean and standard deviation from user input
+    //  Accepts an empty vector which is populated through Normal Distribution using the mean and standard deviation from user input
     void genRandNormalDist(std::vector<int> &, double , double);
     // Calculates a number summary of the distribution.
     void calcNormalHistStats(const std::vector<int> &, double, double);
