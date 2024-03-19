@@ -12,7 +12,6 @@ int partition(std::vector<T> &arr, int tail, int head)
 
     while (!done)
     {
-
         while (arr[left] < pivot)
         {
             ++left;
@@ -52,19 +51,4 @@ void quickSort(std::vector<T> &arr, int tail, int head)
 
     quickSort(arr, tail, j);
     quickSort(arr, j + 1, head);
-}
-
-int main()
-{
-
-    std::vector<int> nums = {80, 10, 20, 4343, 303, 120};
-    int size = nums.size() - 1;
-    quickSort(nums, 0, size);
-
-    for (int num : nums)
-    {
-        std::cout << num << std::endl;
-    }
-
-    return 0;
 }
