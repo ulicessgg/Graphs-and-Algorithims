@@ -12,5 +12,6 @@ int main(){
     UNIT_TESTS::unitTest3_genRandNormalDist();
     UNIT_TESTS::unitTest1_partition();
     UNIT_TESTS::unitTest2_partition();
+
     return 0;
 }
