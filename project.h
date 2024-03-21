@@ -43,7 +43,7 @@ namespace NS_TEAM_PROJECT
     // An almost generic randomized-QuickSort algorithm to sort an array of TokenFreq objects by a given sorting criterion.
     template<typename T>
     void quickSort(std::vector<T> &arr, int tail, int head, std::function<bool(T, T)> comp);
-    // TODO Implement an almost generic algorithm (the randomized version) to find the k-th ranked object in an array without first sorting this array.
+    // An almost generic algorithm (the randomized version) to find the k-th ranked object in an array without first sorting this array.
     void genKthRanked(std::vector<TokenFreq> &arr, int k, std::function<bool(TokenFreq, TokenFreq)> comp);
 
     // printHist prints the populated vector
