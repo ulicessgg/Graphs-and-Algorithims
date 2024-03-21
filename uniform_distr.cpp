@@ -3,12 +3,16 @@
 #include <string>
 #include <iomanip>
 
-void printingHistogram(std::vector<int> dataNums, double rangeMin, double rangeMax)
+void printingHistogram(std::vector<int> dataNums, double rangeMin, double rangeMax, char& sym)
 {
     if (dataNums.empty()) {
         std::cout << "Empty";
         return;
     }
+    std::cout << "Enter symbol for histogram printing: ";
+    std::cin >> sym;
+    std::cout << std::endl;
+
     for (int i = 0; i < dataNums.size(); ++i) {
         std::cout << (float(i) / 10)+rangeMin << "-" << (float(i + 1) / 10)+ rangeMin << ": ";
         std::cout << std::string(dataNums[i] * 400.0 / 20000.0, '*') << std::endl;
@@ -32,7 +36,8 @@ void createHistogram(double rangeMin, double rangeMax) {
             dataNums[index]++;
         }
     }
-    printingHistogram(dataNums, rangeMin, rangeMax);
+    char sym;
+    printingHistogram(dataNums, rangeMin, rangeMax, sym);
 }
 
 int main() {
