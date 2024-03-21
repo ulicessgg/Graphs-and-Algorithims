@@ -161,8 +161,8 @@ namespace NS_TEAM_PROJECT
 				// if the corresponding value is present
 				if (myNums[i] > 0)
 				{
-					// prints user symbol to show the frequency of it using 200 for scaling and 20000 for the size of our distribution
-					std::cout << std::string(myNums[i] * (200.0 / 20000.0), sym) << std::endl;
+					// prints user symbol to show the frequency of it using 400 for scaling and 20000 for the size of our distribution
+					std::cout << std::string(myNums[i] * (400.0 / 20000.0), sym) << std::endl;
 				}
 				else
 				{
