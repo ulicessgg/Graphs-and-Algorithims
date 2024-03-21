@@ -10,6 +10,39 @@
 
 namespace UNIT_TESTS
 {
+    bool unitTest1_createHistogram(){
+        double rangeMin = 5;
+        double rangeMax = 5;
+        NS_TEAM_PROJECT:: createHistogram(5,  5);
+        return !(rangeMin != rangeMax);
+    }
+
+    bool unitTest2_createHistogram(){
+        double rangeMin = 1;
+        double rangeMax = 3;
+        NS_TEAM_PROJECT:: createHistogram(1,  3);
+        return rangeMin < rangeMax;
+    }
+
+
+    bool unitTest1_printingHistogram(){
+        double rangeMin = 1;
+        double rangeMax = 3;
+        char sym;
+        std:: vector<int> dataNums (41);
+        NS_TEAM_PROJECT:: printingHistogram(dataNums, rangeMin, rangeMax, sym);
+        return sym != '*';
+    }
+
+    bool unitTest2_printingHistogram(){
+        double rangeMin = 1;
+        double rangeMax = 1;
+        char sym;
+        std:: vector<int> dataNums (0);
+        NS_TEAM_PROJECT:: printingHistogram(dataNums, rangeMin, rangeMax, sym);
+        return sym == '*';
+    }
+
 	bool unitTest1_genRandNormalDist()
 	{
 		std::vector<int> userNums;
