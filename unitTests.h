@@ -336,6 +336,33 @@ namespace UNIT_TESTS
 	    } else { std::cout << "unitTest1_genKthRanked Failed" << std::endl; }
 
         }*/
+
+
+        /*void unitTest2_genKthRanked() {
+            std::vector<NS_TEAM_PROJECT::TokenFreq> targetVector;
+            targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"apple", 6});
+            targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"orange", 1});
+            targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"tomato", 4});
+            targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"banana", 5});
+            targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"grapes", 2});
+            targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"strawberry", 3});
+
+            auto comp = [](const NS_TEAM_PROJECT::TokenFreq &token1, const NS_TEAM_PROJECT::TokenFreq &token2) {
+                return (token1.freq > token2.freq);
+            };
+            
+	    std::vector<NS_TEAM_PROJECT::TokenFreq> sorted = targetVector;
+            NS_TEAM_PROJECT::quickSort<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, sorted.size() -1, comp);
+            
+	    int k = 4;
+
+            NS_TEAM_PROJECT::TokenFreq result = NS_TEAM_PROJECT::genKthRanked(targetVector, k, comp);
+
+            if(sorted.at(k).freq == result.freq && sorted.at(k).token == result.token) {
+                std::cout << "unitTest1_genKthRanked Passed" << std::endl;
+	    } else { std::cout << "unitTest1_genKthRanked Failed" << std::endl; }
+
+        }*/
 }
 
 #endif
