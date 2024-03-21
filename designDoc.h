@@ -234,4 +234,36 @@ worst-case time complexity analysis
 your choice of data structures with a brief justification in the final coding stage
 
 
+____________________
+___ genKthRanked ___
+____________________
+
+Input: 
+* a vector of TokenFreq objects
+* an integer indicating the rank of the desired TokenFreq
+* a comparison function
+
+Ouput: A TokenFreq Object of the rank specified
+
+Pseudocode:
+
+genKthRanked(vector, k, comp)
+    left = 0;
+    right = length of vector -1
+    Loop indefinitely:
+        pivot = random int between left and right
+	new_pivot = partition(vector, left, right, comp)
+
+	If new_pivot is the index of the k-th ranked element:
+	    Return vector[new_pivot]
+	If new_pivot is greater than the index of the k-th ranked element:
+	    Set right to new_pivot - 1
+	If new_pivot is less than the index of the k-th ranked element:
+	    Set left to new_pivot + 1
+
+Worst case time complexity: O(N^2)
+
+Justification for using user-defined struct TokenFreq:
+* The idea was to expand on previous assignments we've already done in the class such as the tokenizer so that's why we used the TokenFreq object.
+
 */
