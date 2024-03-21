@@ -145,14 +145,14 @@ namespace UNIT_TESTS
 		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 1});
 		targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token4", 3});
 
-		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
+		auto comp = [](const NS_TEAM_PROJECT::TokenFreq o1, const NS_TEAM_PROJECT::TokenFreq &o2)
 		{
 			return (o1.freq < o2.freq);
 		};
 
 		int head = targetVector.size() - 1;
 
-		NS_TEAM_PROJECT::quickSort(targetVector, 0, head, comp);
+		NS_TEAM_PROJECT::quickSort<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, head, comp);
 
 		// Check if the vector is sorted
 		if (_isSortedAsc(targetVector))
@@ -179,7 +179,7 @@ namespace UNIT_TESTS
 
 		int head = targetVector.size() - 1;
 
-		NS_TEAM_PROJECT::quickSort(targetVector, 0, head, comp);
+		NS_TEAM_PROJECT::quickSort<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, head, comp);
 
 		// Check if the vector is sorted
 		if (_isSortedDesc(targetVector))
@@ -205,7 +205,7 @@ namespace UNIT_TESTS
 
 		int head = targetVector.size() - 1;
 
-		NS_TEAM_PROJECT::quickSort(targetVector, 0, head, comp);
+		NS_TEAM_PROJECT::quickSort<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, head, comp);
 
 		// Check if the vector is sorted
 		if (_isSortedAsc(targetVector))
@@ -230,8 +230,9 @@ namespace UNIT_TESTS
 		{
 			return (o1.freq < o2.freq);
 		};
+		
 		int head = targetVector.size() - 1;
-		NS_TEAM_PROJECT::partition(targetVector, 0, head, comp);
+		NS_TEAM_PROJECT::partition<NS_TEAM_PROJECT::TokenFreq> (targetVector, 0, head, comp);
 
 		std::vector<int> freqOrder = {1, 4, 3, 2};
 
@@ -262,7 +263,7 @@ namespace UNIT_TESTS
 			return (o1.freq > o2.freq);
 		};
 		int head = targetVector.size() - 1;
-		NS_TEAM_PROJECT::partition(targetVector, 0, head, comp);
+		NS_TEAM_PROJECT::partition<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, head, comp);
 
 		std::vector<int> freqOrder = {4, 2, 3, 1};
 
