@@ -18,4 +18,4 @@ NS_TEAM_PROJECT::TokenFreq genKthRanked(std::vector<NS_TEAM_PROJECT::TokenFreq> 
             left = new_pivot + 1;
         }
     }
-};
+}
