@@ -15,13 +15,13 @@ int main()
     {
         std::cout << "unitTest1_genRandNormalDist failed!" << std::endl;
     }
-    if (!UNIT_TESTS::unitTest2_genRandUniformDist())
+    if (!UNIT_TESTS::unitTest2_genRandNormalDist())
     {
-        std::cout << "unitTest2_genRandUniformDist failed!" << std::endl;
+        std::cout << "unitTest2_genRandNormalDist failed!" << std::endl;
     }
-    if (!UNIT_TESTS::unitTest3_genRandUniformDist())
+    if (!UNIT_TESTS::unitTest3_genRandNormalDist())
     {
-        std::cout << "unitTest3_genRandUniformDist failed!" << std::endl;
+        std::cout << "unitTest3_genRandNormalDist failed!" << std::endl;
     }
     if (!UNIT_TESTS::unitTest1_calcNormalHistStats())
     { 
