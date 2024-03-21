@@ -263,19 +263,50 @@ your choice of data structures with a brief justification in the final coding st
 // doubles were used for minimum and maximum range values because the assignment requires floating-point numbers
 // default_random_engine and uniform distribution from <random> were used in order to develop a uniform distribution properly alongside with truly random numbers
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Input and output of the problem
 quickSort() ->
-    ({TokenFreq[freq: 1], TokenFreq[freq: 3], TokenFreq[freq: 2]}, sortAsc | {TokenFreq[freq: 1], TokenFreq[freq: 2], TokenFreq[freq: 3]})
-    ({TokenFreq[freq: 1], TokenFreq[freq: 3], TokenFreq[freq: 2]}, sortDesc | {TokenFreq[freq: 3], TokenFreq[freq: 2], TokenFreq[freq: 1]})
+    ({TokenFreq[freq: 1], TokenFreq[freq: 3], TokenFreq[freq: 2]}, 0, 3, sortAsc | {TokenFreq[freq: 1], TokenFreq[freq: 2], TokenFreq[freq: 3]})
+    ({TokenFreq[freq: 1], TokenFreq[freq: 3], TokenFreq[freq: 2]},0, 3 sortDesc | {TokenFreq[freq: 3], TokenFreq[freq: 2], TokenFreq[freq: 1]})
 your algorithm in pseudo code with comments
 quickSort() ->
+    Input:
+        ({TokenFreq[freq: 1], TokenFreq[freq: 3], TokenFreq[freq: 2]}, 0, 3, sortAsc)
+    Output:
+        ({TokenFreq[freq: 1], TokenFreq[freq: 2], TokenFreq[freq: 3]})
     Algorithm:
-        // Partition the full array into two halves 
-    
-worst-case time complexity analysis
-    O(nlogn)
-your choice of data structures with a brief justification in the final coding stage
+         If the left and right indexes cross or are at the same index.
+             The arr is sorted. Return nothing.
+         Sort the full array and return the pivot position.
+         Sort the lower parition, ending at the pivot.
+         Sort the upper partition, starting at the value +1 the pivot.
 
+partition() ->
+    Input:
+        ({TokenFreq[freq: 1], TokenFreq[freq: 3], TokenFreq[freq: 2]}, 0, 3, sortAsc)
+    Output:
+        ({TokenFreq[freq: 1], TokenFreq[freq: 2], TokenFreq[freq: 3]})
+    Algorithm:
+    Pick a random value as pivot
+
+    Get the leftest and right most indexes.
+
+    While the left and right index do not cross.
+            increase the left most index until the comparison fails against the pivot.
+            decrease the right most index until the comparison fails against the pivot.
+
+            If the left and right indexes cross or are at the same index.
+                the partition is complete.
+            ELSE:
+                Swap the values of the right index and left index.
+    return the current pivot.
+
+
+worst-case time complexity analysis
+   quickSort -> O(n^2)
+   parition -> partition -> O(n)
+your choice of data structures with a brief justification in the final coding stage
+    I am using vectors because I do care about order in this situation. Secondly, I care about being able to dynamically add values for ease of testing however, without that, basic arrays would be suitable. 
 
 ____________________
 ___ genKthRanked ___
