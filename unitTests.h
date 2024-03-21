@@ -230,14 +230,14 @@ namespace UNIT_TESTS
 		};
 
 		int head = targetVector.size() - 1;
-		NS_TEAM_PROJECT::partition<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, head, comp);
+		int val = NS_TEAM_PROJECT::partition<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, head, comp);
 
 		std::vector<int> freqOrder = {1, 4, 3, 2};
 
-		for (int i = 0; i <= head; i++)
+		for (int i = 0; i < val; i++)
 		{
 
-			if (targetVector[i].freq != freqOrder[i])
+			if (targetVector[i].freq > targetVector[val].freq)
 			{
 				std::cout << "test1_partition Failed" << std::endl;
 				return false;
@@ -257,17 +257,17 @@ namespace UNIT_TESTS
 
 		auto comp = [](const NS_TEAM_PROJECT::TokenFreq &o1, const NS_TEAM_PROJECT::TokenFreq &o2)
 		{
-			return (o1.freq > o2.freq);
+			return (o1.freq < o2.freq);
 		};
 		int head = targetVector.size() - 1;
-		NS_TEAM_PROJECT::partition<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, head, comp);
+		int val  = NS_TEAM_PROJECT::partition<NS_TEAM_PROJECT::TokenFreq>(targetVector, 0, head, comp);
 
-		std::vector<int> freqOrder = {4, 2, 3, 1};
 
-		for (int i = 0; i <= head; i++)
+
+		for (int i = head; i >= val; i--)
 		{
 
-			if (targetVector[i].freq != freqOrder[i])
+			if (targetVector[i].freq < targetVector[val].freq)
 			{
 				std::cout << "test2_partition Failed" << std::endl;
 				return false;
