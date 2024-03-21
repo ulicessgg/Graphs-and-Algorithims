@@ -29,13 +29,13 @@ namespace NS_TEAM_PROJECT
     // TODO Generates a histogram of 20,000 randomly generated floating-point numbers according to a uniform distribution with a user-specified range
     void genRandUniformDist(std::vector<int> &myNums, double lowerBound, double upperBound);
     //  Accepts an empty vector which is populated through Normal Distribution using the mean and standard deviation from user input
-    void genRandNormalDist(std::vector<int> &, double , double);
+    void genRandNormalDist(std::vector<int>&, double, double);
     // Calculates a number summary of the distribution.
-    void calcNormalHistStats(const std::vector<int> &, double, double);
+    void calcNormalHistStats(const std::vector<int>&, double, double);
     // Overloaded `calcHistStats()` calculates and prints a five-number summary of the distribution used for unit testing
-    void calcNormalHistStats(const std::vector<int> &, double &, double &, double &, double &, double &, size_t &, size_t &);
+    void calcNormalHistStats(const std::vector<int>&, double&, double&, double&, double&, double&, size_t&, size_t&);
     // Prints out histogram with `sym` as a representation of data points.
-    void printNormalHist(const std::vector<int> &, char &);
+    void printNormalHist(const std::vector<int>&, char&, const double&);
     // The partition subroutine that's shared by the quickSort and k-th ranked  object algorithms
     int partition(std::vector<NS_TEAM_PROJECT::TokenFreq> &arr, int tail, int head, std::function<bool(NS_TEAM_PROJECT::TokenFreq, NS_TEAM_PROJECT::TokenFreq)> comp);
     // An almost generic randomized-QuickSort algorithm to sort an array of TokenFreq objects by a given sorting criterion.
