@@ -311,7 +311,6 @@ namespace UNIT_TESTS
 		return true;
 	}
 
-        /*    WIP   */
         /*void unitTest1_genKthRanked() {
             std::vector<NS_TEAM_PROJECT::TokenFreq> targetVector;
             targetVector.push_back(NS_TEAM_PROJECT::TokenFreq{"token6", 6});
