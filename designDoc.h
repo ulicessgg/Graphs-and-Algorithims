@@ -219,6 +219,49 @@ worst-case time complexity analysis
 your choice of data structures with a brief justification in the final coding stage
 // size_t used for iterators to prevent out of bound errors
 // string conversional used to output user symbol
+
+
+ /*
+-----------------------------------
+________ createHistogram ________
+-----------------------------------
+
+input of the problem
+// one integer vector
+// two double variables
+//one character
+output of the problem
+// populates int vector passed into it and passes it along to printingHistogram
+your algorithm in pseudo code with comments
+//
+createHistogram(double rangeMin, rangeMax)
+	{
+
+		declare size of distribution as 20000 as specified in the project description
+		declare intervals and how wide they are
+		declare default_random_engine used to generate numbers
+		declare uniform distribution using the range with upper bound and lower bound variables
+		declare vector of dataNums with the intervals
+		declare temporary integer used to hold the value of numbers from random generation
+
+		for loop used to generate 20000 random integers
+		{
+			assign a random value from the distribution to tempNums for it to generate histogram
+			index = static_cast<int>((tempNums - rangeMin) / (rangeMax - rangeMin) * intervals// in order to create a histogram
+			if index is not negative & less than the interval size, then increase dataNums
+			{
+				increase the frequency of the number generated
+			}
+		}
+		calling the print function
+	}
+//
+worst-case time complexity analysis
+// time complexity always equal to O(20000) as that is the amount of iterations of our for loop
+your choice of data structures with a brief justification in the final coding stage
+// a vector was used as a histogram as it is can be treated as one dimensional by using indexes as values and the value held at the index as the frequency
+// doubles were used for minimum and maximum range values because the assignment requires floating-point numbers
+// default_random_engine and uniform distribution from <random> were used in order to develop a uniform distribution properly alongside with truly random numbers
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Input and output of the problem
 quickSort() ->
@@ -267,3 +310,4 @@ Justification for using user-defined struct TokenFreq:
 * The idea was to expand on previous assignments we've already done in the class such as the tokenizer so that's why we used the TokenFreq object.
 
 */
+
